@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <meta name="author" content="MrShiba">
+
+
+  <meta name="subtitle" content="阿柴的赛博自留地">
+
+
+  <meta name="description" content="读书笔记 | 终身学习者">
+
+
+
+<title>【黄执中的说服课】02-说服的对象 | 柴知道的故事</title>
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/nprogress/nprogress.css">
+
+
+
+<script src="/lib/jquery.min.js"></script>
+
+
+<script src="/lib/iconify-icon.min.js"></script>
+
+
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+  };
+</script>
+
+
+<script src="/lib/nprogress/nprogress.js"></script>
+
+<script>
+  $(document).ready(() => {
+    NProgress.configure({
+      showSpinner: false,
+    });
+    NProgress.start();
+    $("#nprogress .bar").css({
+      background: "#de7441",
+    });
+    $("#nprogress .peg").css({
+      "box-shadow": "0 0 2px #de7441, 0 0 4px #de7441",
+    });
+    $("#nprogress .spinner-icon").css({
+      "border-top-color": "#de7441",
+      "border-left-color": "#de7441",
+    });
+    setTimeout(function () {
+      NProgress.done();
+      $(".fade").removeClass("out");
+    }, 800);
+  });
+</script>
+
+<script>
+  (function () {
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+    if (setting === "dark" || (prefersDark && setting !== "light"))
+      document.documentElement.classList.toggle("dark", true);
+    let isDark = document.documentElement.classList.contains("dark");
+  })();
+
+  $(document).ready(function () {
+    // init icon
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isDark = document.documentElement.classList.contains("dark");
+    $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
+
+    function toggleGiscusTheme() {
+      const isDark = document.documentElement.classList.contains("dark");
+      const giscusFrame = document.querySelector("iframe.giscus-frame");
+      if (giscusFrame) {
+        giscusFrame.contentWindow.postMessage(
+          {
+            giscus: {
+              setConfig: {
+                theme: isDark ? "dark" : "light",
+              },
+            },
+          },
+          "https://giscus.app"
+        );
+      }
+    }
+
+
+    // toggle dark mode
+    function toggleDark() {
+      let isDark = document.documentElement.classList.contains("dark");
+      isDark = !isDark;
+      const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+      document.documentElement.classList.toggle("dark", isDark);
+      $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
+      if (prefersDark === isDark) {
+        localStorage.setItem("hexo-color-scheme", "auto");
+      } else {
+        localStorage.setItem("hexo-color-scheme", isDark ? "dark" : "light");
+      }
+      toggleGiscusTheme();
+    }
+    $("#toggle-dark").click(toggleDark);
+    // listen dark mode change
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (e) => {
+        const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+        if (setting === "auto") {
+          document.documentElement.classList.toggle("dark", e.matches);
+          $("#theme-icon").attr(
+            "icon",
+            e.matches ? "ri:moon-line" : "ri:sun-line"
+          );
+          toggleGiscusTheme();
+        }
+      });
+  });
+</script>
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body class="font-sans bg-white dark:bg-zinc-900 text-gray-700 dark:text-gray-200">
+  <header class="fixed w-full px-5 py-1 z-10 backdrop-blur-xl backdrop-saturate-150 border-b border-black/5">
+  <div class="max-auto">
+    <nav class="flex items-center text-base">
+      <a href="/" class="group">
+        <h2 class="font-medium tracking-tighterp text-l p-2">
+          <img class="w-5 mr-2 inline-block transition-transform group-hover:rotate-[30deg]" id="logo" src="/images/logo.svg" alt="柴知道的故事" />
+          柴知道的故事
+        </h2>
+      </a>
+      <div id="header-title" class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
+        【黄执中的说服课】02-说服的对象
+      </div>
+      <div class="flex-1"></div>
+      <div class="flex items-center gap-3">
+        
+          <a class="hidden sm:flex" href="/archives">Posts</a>
+        
+        
+          
+            <a class="w-5 h-5 hidden sm:flex" title="Github" target="_blank" rel="noopener" href="https://github.com/xbmlz">
+              <iconify-icon width="20" icon="ri:github-line"></iconify-icon>
+            </a>
+          
+        
+        <a class="w-5 h-5" title="toggle theme" id="toggle-dark">
+          <iconify-icon width="20" icon="" id="theme-icon"></iconify-icon>
+        </a>
+      </div>
+      <div class="flex items-center justify-center gap-3 ml-3 sm:hidden">
+        <span class="w-5 h-5" aria-hidden="true" role="img" id="open-menu">
+          <iconify-icon width="20" icon="carbon:menu" ></iconify-icon>
+        </span>
+        <span class="w-5 h-5 hidden" aria-hidden="true" role="img" id="close-menu">
+          <iconify-icon  width="20" icon="carbon:close" ></iconify-icon>
+        </span>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="menu-panel" class="h-0 overflow-hidden sm:hidden fixed left-0 right-0 top-12 bottom-0 z-10">
+  <div id="menu-content" class="relative z-20 bg-white/80 px-6 sm:px-8 py-2 backdrop-blur-xl -translate-y-full transition-transform duration-300">
+    <ul class="nav flex flex-col sm:flex-row text-sm font-medium">
+      
+        <li class="nav-portfolio sm:mx-2 border-b sm:border-0 border-black/5 last:border-0 hover:text-main">
+          <a href="/archives" class="flex h-12 sm:h-auto items-center">Posts</a>
+        </li>
+      
+    </ul>
+  </div>
+  <div class="mask bg-black/20 absolute inset-0"></div>
+</div>
+
+  <main class="p-12">
+    <!-- css -->
+
+<link rel="stylesheet" href="/lib/fancybox/fancybox.min.css">
+
+
+<link rel="stylesheet" href="/lib/tocbot/tocbot.min.css">
+
+<!-- toc -->
+
+  <!-- tocbot -->
+<nav class="post-toc toc text-sm w-48 relative top-32 right-0 opacity-70 hidden lg:block" style="position: fixed !important;"></nav>
+
+
+<section class="px-6 max-w-prose mx-auto md:px-0">
+  <!-- header -->
+  <header class="overflow-hidden pt-6 pb-6 md:pt-12">
+    <div class="pt-4 md:pt-6">
+      <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
+        【黄执中的说服课】02-说服的对象
+      </h1>
+      <p class="mb-6">
+        
+      </p>
+      <div>
+        <section class="flex items-center gap-3 text-sm">
+          <time>2023-04-25 10:44:58</time>
+          <span class="text-gray-400">·</span>
+          <span>5 min</span>
+          <span class="text-gray-400">·</span>
+          <span>1.5k words</span>
+        </section>
+      </div>
+    </div>
+  </header>
+  <!-- content -->
+  <article class="post-content mt-10 prose dark:prose-invert post-content">
+    <h2 id="说服的对象"><a href="#说服的对象" class="headerlink" title="说服的对象"></a>说服的对象</h2><p>我們將探討說服的對象以及如何區分他們。通常，說服的對象可以分為&#x3D;&#x3D;綿羊和山羊&#x3D;&#x3D;，這概念源自聖經，它在宗教和說服技巧中被廣泛應用。</p>
+<p>綿羊代表了那些順服、迎合、配合的聽眾，而山羊則是那些保持懷疑、批判和挑剔的人。在說服過程中，我們需要將這兩類人分開來對待，<strong>因為對不同的對象，說服的方式和目標是不一樣的。</strong></p>
+<p>在宗教團體中，牧師或神父需要具備出色的演講和說服技巧，因為他們需要讓人信仰上帝，而上帝並不顯靈。因此，這些宗教團體中的說服高手需要懂得如何分辨綿羊和山羊，以便采取不同的說服策略。</p>
+<p>以韓國的邪教統一教為例，創立者文顯明牧師利用了黑羊和白羊的概念，他認為黑羊和白羊不能在同一個屋子下聽他的講道，因為對不同的對象，他需要采用不同的策略和話語。</p>
+<p>在說服過程中，很多人容易犯的錯誤就是沒有考慮到對象的需求和特點。詐騙電話的一個重要目的就是要在短時間內確定對方是不是容易上當的白羊。如果在30秒內無法判斷對方是否容易上當，那麼就需要趕快掛掉這通電話，打下一個，以免浪費時間。</p>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>基本上我们在面对说服的时候，会把我们的对象分成三种：<strong>反对听众、中立听众和支持听众</strong>。这看起来很简单，甚至我不用去解释，你也知道这三种是什么意思。但我相信在不解释的时候，你的理解未必是真的情况。所谓的反对、支持和中立，他们的态度可以分成五个区域：<strong>抗拒、懷疑、中立、顺从和投入</strong>。基本上是一个光谱的过程。</p>
+<h4 id="顺从与投入"><a href="#顺从与投入" class="headerlink" title="顺从与投入"></a>顺从与投入</h4><p>首先我们解释第一种，支持听众，我们称之为从顺从到投入的过程。这代表基本上我的立场跟你一致，我是支持你的，我是认同你的，只是程度不一样。顺从和投入的程度怎么看呢？顺从就像你跟一只小狗说这不准动，狗就不动，乖乖待着；而投入就像那些全身心投入的人。虽然都是听话，但他们的程度差别很大。</p>
+<h4 id="怀疑与抗拒"><a href="#怀疑与抗拒" class="headerlink" title="怀疑与抗拒"></a>怀疑与抗拒</h4><p>反对听众其实也有两个程度，一个叫做怀疑，一个叫做抗拒。比如，你不相信算命，你可能是怀疑的态度，觉得算命真的有意义吗？还是抗拒的态度，一听就觉得是邪教。程度之差是存在的。</p>
+<p>相反的，我们也可以问：如果你相信算命，有人是顺从的，有人是投入的。顺从叫做宁可信其有不可信其无；投入叫做一定得找大师。这些都有差别。</p>
+<p>在说服的过程中，<strong>讲道理只能让人顺从，动感情才能让人投入</strong>。例如，你跟一个人讲道理的时候，你顶多让他顺从；而当你动感情的时候，才能让人投入。这就是从顺从到投入的过程。</p>
+<p>理解了这些以后，我们可以更好地针对不同的听众进行说服。</p>
+<h4 id="中立无感"><a href="#中立无感" class="headerlink" title="中立无感"></a>中立无感</h4><p>最后一个阶段是无感。无感很容易理解，就是我对这件事情没有看法，我是中立。在信息处理过程中，我们会得到一个有趣的概念，那就是每个人都倾向于维持现状。面对一个信息，支持的人继续支持，懷疑的人继续懷疑，讨厌的人继续讨厌，无感的人继续无感。<strong>每个人都习惯于待在他现阶段的状态下</strong>。</p>
+<p>在说服过程中，<strong>任何一个位置的移动的难度基本都是相同的</strong>。以算命为例，要让一个懷疑算命的人变成无感或者排斥，都需要花费力气改变观念。所以说服不仅仅针对中间这一群人，任何位置的移动都是一种说服。我们所谓的说服成功，就是让你把现在的这个位置往另外一个点去移动。</p>
+<p>以怎样说服孩子喜欢念书为例，首先要明白孩子现在处于一个什么样的状态。孩子虽然不喜欢念书，但他已经在上学，完成作业，所以他属于顺从状态，而非反对状态。我们的目标是让孩子变得更投入。</p>
+<p>再举一个例子，有一个问题是如何说服丈夫在家里使用公筷。首先，我们需要了解丈夫目前处于哪个立场。他可能对公筷无感，因此他实际上是一个中立型听众，而非反对型听众。在说服过程中，关键是让他从无感变成有感。也许你应该告诉他，使用公筷与他和孩子的健康息息相关，家里使用公筷可以帮助孩子养成良好的餐桌习惯。</p>
+<p>面对公司里头或项目里头的甲方，可能会遇到挑三检四的情况。在这种情况下，甲方可能是反对聽眾、懷疑聽眾或无感聽眾。我们需要根据具体情况来进行说服策略。不管是哪种情况，关键在于理解对方的立场和需求，以便找到合适的方法进行说服。</p>
+<p>总之，在进行说服时，我们要了解一件事，并不是只有中间的这一群人需要说服，任何位置的移动都是一种说服。要了解对方的立场，<strong>不要把不同意你的人都当成反对聽眾</strong>。懂得调整策略，才能更好地进行有效的沟通和说服。</p>
+
+  </article>
+  <!-- tag -->
+  <div class="mt-12 pt-6 border-t border-gray-200">
+    
+      
+        <span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 m-1 text-sm rounded-md transition-colors hover:bg-gray-200">
+          <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+        </span>
+      
+        <span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 m-1 text-sm rounded-md transition-colors hover:bg-gray-200">
+          <a href="/tags/%E9%BB%84%E6%89%A7%E4%B8%AD/">黄执中</a>
+        </span>
+      
+        <span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 m-1 text-sm rounded-md transition-colors hover:bg-gray-200">
+          <a href="/tags/%E8%AE%B2%E5%BA%A7/">讲座</a>
+        </span>
+      
+    
+  </div>
+  <!--PC版-->
+  <div id="SOHUCS" ></div>
+   <script charset="utf-8" type="text/javascript" src="https://cy-cdn.kuaizhan.com/upload/changyan.js" ></script>
+   <script type="text/javascript">
+    window.changyan.api.config({
+    appid: 'cywDT1yxa',
+    conf: 'prod_cafa903114bc995f6aaa4328bccd3684'
+      });
+   </script>
+  <!-- prev and next -->
+  <div class="flex justify-between mt-12 pt-6 border-t border-gray-200">
+    <div>
+      
+    </div>
+    <div>
+      
+        <a href="/persuade_lecture_01/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+          【黄执中的说服课】01-什么是说服
+          <iconify-icon width="20" icon="ri:arrow-right-s-line" data-inline="false"></iconify-icon>
+        </a>
+      
+    </div>
+  </div>
+  <!-- comment -->
+  <div class="article-comments mt-12">
+    
+
+  </div>
+</section>
+<!-- js inspect -->
+
+<script src="/lib/clipboard.min.js"></script>
+
+
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+  $(document).ready(() => {
+    const maraidConfig = {
+      theme: "default",
+      logLevel: 3,
+      flowchart: { curve: "linear" },
+      gantt: { axisFormat: "%m/%d/%Y" },
+      sequence: { actorMargin: 50 },
+    };
+    mermaid.initialize(maraidConfig);
+  });
+</script>
+
+
+
+<script src="/lib/fancybox/fancybox.umd.min.js"></script>
+
+<script>
+  $(document).ready(() => {
+    $('.post-content').each(function(i){
+      $(this).find('img').each(function(){
+        if ($(this).parent().hasClass('fancybox') || $(this).parent().is('a')) return;
+        var alt = this.alt;
+        if (alt) $(this).after('<span class="fancybox-alt">' + alt + '</span>');
+        $(this).wrap('<a class="fancybox-img" href="' + this.src + '" data-fancybox=\"gallery\" data-caption="' + alt + '"></a>')
+      });
+      $(this).find('.fancybox').each(function(){
+        $(this).attr('rel', 'article' + i);
+      });
+    });
+
+    Fancybox.bind('[data-fancybox="gallery"]', {
+        // options
+    })
+  })
+</script>
+
+<!-- tocbot begin -->
+
+<script src="/lib/tocbot/tocbot.min.js"></script>
+
+<script>
+  $(document).ready(() => {
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.post-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '.post-content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h1, h2, h3',
+        // For headings inside relative or absolute positioned containers within content.
+        hasInnerContainers: true,
+    });
+  })
+</script>
+<!-- tocbot end -->
+
+
+  </main>
+  <footer class="flex flex-col h-40 items-center justify-center text-gray-400 text-sm">
+  <!-- busuanzi -->
+  
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Busuanzi Analytics -->
+<div class="flex items-center gap-2">
+  <span>Visitor Count</span>
+  <span id="busuanzi_value_site_uv"></span>
+  <span>Totalview</span>
+  <span id="busuanzi_value_site_pv"></span>
+</div>
+<!-- End Busuanzi Analytics -->
+
+
+  <!-- copyright -->
+  <div class="flex items-center gap-2">
+    <span>© 2023</span>
+    <iconify-icon width="18" icon="emojione-monotone:maple-leaf" ></iconify-icon>
+    <a href="https://github.com/xbmlz" target="_blank" rel="noopener noreferrer">xbmlz</a>
+  </div>
+  <!-- powered by -->
+  <div class="flex items-center gap-2">
+    <span>Powered by</span>
+    <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a>
+    <span>&</span>
+    <a href="https://github.com/xbmlz/hexo-theme-maple" target="_blank" rel="noopener noreferrer">Maple</a>
+  </div>
+
+</footer>
+
+  <iconify-icon class="fixed right-4 bottom-10 z-100 opacity-0" width="24" icon="ion:arrow-up-c" id="go-top"></iconify-icon>
+  
+<script src="/js/main.js"></script>
+
+<script>
+  // load ./logo.svg to canvas
+  // 每次页面加载都执行
+  $(document).ready(function () {
+    const img = $("#logo")[0];
+    // 定义树叶数量
+    const mapleCount = "10";
+    // 定义树叶飘落的速度
+    const speed = "1";
+    // client width
+    const width = document.body.clientWidth;
+    const height = document.body.clientHeight;
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+
+    const bufferCanvas = document.createElement("canvas");
+    const bufferCtx = bufferCanvas.getContext("2d");
+
+    const dpr = window.devicePixelRatio || 1;
+    const bsr =
+      ctx.webkitBackingStorePixelRatio ||
+      ctx.mozBackingStorePixelRatio ||
+      ctx.msBackingStorePixelRatio ||
+      ctx.oBackingStorePixelRatio ||
+      ctx.backingStorePixelRatio ||
+      1;
+    const dpi = dpr / bsr;
+    bufferCanvas.width = canvas.width = dpi * width;
+    bufferCanvas.height = canvas.height = dpi * height;
+    bufferCtx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingEnabled = true;
+    // 绘制树叶飘落
+    const drawMaple = (ctx, x, y, scale) => {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.scale(scale, scale);
+      ctx.drawImage(bufferCanvas, -img.width / 2, -img.height / 2);
+      ctx.restore();
+    };
+    // 在内存中绘制树叶
+    bufferCtx.drawImage(img, 0, 0, img.width, img.height);
+    // 定义树叶的位置
+    const maples = Array.from({ length: mapleCount }).map(() => {
+      const x = Math.random() * canvas.width;
+      const y = Math.random() * canvas.height;
+      const scale = Math.random() * 0.5 + 0.5;
+      const offset = Math.random() * 2 - 1;
+      return {
+        x,
+        y,
+        scale,
+        speed: speed * scale,
+        offset: offset,
+      };
+    });
+    // 定义树叶的动画
+    const play = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      maples.forEach((maple) => {
+        drawMaple(ctx, maple.x, maple.y, maple.scale);
+        maple.y += maple.speed;
+        maple.x += maple.offset;
+        if (maple.y > canvas.height) {
+          maple.y = 0;
+        }
+        if (maple.x > canvas.width) {
+          maple.x = 0;
+        }
+      });
+      requestAnimationFrame(play);
+    };
+    requestAnimationFrame(play);
+    // 添加到页面中
+    $("#maple").append(canvas);
+  });
+</script>
+
+
+  <div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none -z-1" id="maple"></div>
+</body>
+
+</html>
